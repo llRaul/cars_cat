@@ -25,7 +25,7 @@ namespace cars.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=Cars;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-F38IK8I;Initial Catalog=Cars;Integrated Security=True")]
         public string SQLConnectionString {
             get {
                 return ((string)(this["SQLConnectionString"]));
