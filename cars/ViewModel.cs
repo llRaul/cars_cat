@@ -66,21 +66,24 @@ namespace cars
             set
             {
                 _selectedModel = value;
-                CarInfo = SQLManager.GetStingListByQuery($"select top 1 info from Cars where model = '{value}'")[0];
-                try
+                  if (value != null)
                 {
-                    Photo = null;
-                    BitmapImage img = new BitmapImage();
-                    img.BeginInit();
-                    img.CacheOption = BitmapCacheOption.OnLoad;
-                    img.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-                    img.UriSource = new Uri($"Images/{value}.jpg", UriKind.Relative);
-                    img.EndInit();
-                    Photo = img;
-                }
-                catch
-                {
-                    MessageBox.Show("Изображения нет");
+                    CarInfo = SQLManager.GetStingListByQuery($"select top 1 info from Cars where model = '{value}'")[0];
+                    try
+                    {
+                        Photo = null;
+                        BitmapImage img = new BitmapImage();
+                        img.BeginInit();
+                        img.CacheOption = BitmapCacheOption.OnLoad;
+                        img.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+                        img.UriSource = new Uri($"Images/{value}.jpg", UriKind.Relative);
+                        img.EndInit();
+                        Photo = img;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Изображения нет");
+                    }
                 }
             }
         }
